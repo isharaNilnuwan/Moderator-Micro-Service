@@ -1,5 +1,5 @@
 const express = require("express");
-const submitted = require("./routes/submited.routes");
+const submitted = require("./routes/moderator.routes");
 const authentication = require("./routes/auth.routes")
 
 const app = express();
@@ -7,7 +7,7 @@ const app = express();
 app.use(express.json());
 
 app.use("/login", authentication);
-app.use("/submited",submitted );
+app.use("/moderate",submitted );
 
 app.use((req, res, next) => {
     var requestedUrl = req.protocol + "://" + req.get("Host") + req.url;
