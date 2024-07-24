@@ -1,6 +1,6 @@
 const express = require("express");
 
-const {getNewJokes, updateJoke, addNewType} = require("../controller/moderator.controller")
+const {getNewJokes, updateJoke, addNewType, acceptJoke, getJokeTypes, rejectJoke} = require("../controller/moderator.controller")
 
 const router = express.Router();
 
@@ -11,6 +11,12 @@ router.get("/newJokes", verifyToken, getNewJokes);
 
 router.put("/editJokes", verifyToken, updateJoke);
 
-router.put("/addNewType", verifyToken, addNewType);
+router.post("/addNewType", verifyToken, addNewType);
+
+router.put("/acceptJoke", verifyToken, acceptJoke);
+
+router.delete("/rejectJoke/:id", verifyToken, rejectJoke);
+
+router.get("/getTypes", getJokeTypes);
 
 module.exports = router

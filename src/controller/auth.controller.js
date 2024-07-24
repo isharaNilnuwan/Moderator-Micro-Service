@@ -18,6 +18,7 @@ const login = asyncHandler(async (req, res) => {
     });
   }
 
+  const expiresIn = '1h'; 
   let jwtToken = jwt.sign(
     {
       email: email,
@@ -25,12 +26,18 @@ const login = asyncHandler(async (req, res) => {
     },
     process.env.JWT_SECRET,
     {
-      expiresIn: "1h",
+      expiresIn: expiresIn,
     }
   );
+
+  const expirationDate = new Date();
+  expirationDate.setHours(expirationDate.getHours() + parseInt(expiresIn));
+
+
   return res.status(200).json({
     accessToken: jwtToken,
-    userId: process.env.ADMIN_PASSWORD,
+    userId: process.env.USER_ID,
+    expiresIn: expirationDate.getTime()
   });
 });
 

@@ -7,7 +7,7 @@ const loginValidation = async (req, res, next) => {
     }
 
     await validator(req.body, validateRule, {}, (err, status) =>{
-        console.log("auth validator")
+        console.log("auth validator", req.body);
         if (!status){
             res.status(412)
             .send({
