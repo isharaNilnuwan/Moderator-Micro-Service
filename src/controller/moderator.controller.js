@@ -24,7 +24,7 @@ async function updateJoke(req, res, next) {
 }
 
 async function rejectJoke(req, res, next) {
-    console.log("#$ reject joke", req.params.id)
+    console.log("reject joke", req.params.id)
     try {
         res.json(await deleteUnModeratedJokes(req.params.id));        
     } catch (error) {
@@ -39,7 +39,7 @@ async function acceptJoke(req, res, next) {
     const data = req.body;
 
     try {
-        // await updateUnModeratedJokes(data)
+        await updateUnModeratedJokes(data)
         await createjoke(data)
         res.json({success : "accepted succesfully"});
     } catch (error) {
@@ -52,7 +52,7 @@ async function acceptJoke(req, res, next) {
 async function addNewType(req, res, next) {
 
     //save to deliver service
-    console.log("#$ add new type modete")
+    console.log("add new type modete")
     const data = req.body
     try {
         res.json(await addType(data));

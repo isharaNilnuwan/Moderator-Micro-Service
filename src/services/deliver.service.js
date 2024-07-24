@@ -4,7 +4,6 @@ require("dotenv").config();
 const apiKey = process.env.CLIENT_API_KEY; 
 
 const getAllJokeTypes = async () => {
-    console.log("#$ get all types service",`${process.env.DELIVER_SERVICE_URL}/type/all`)
     try {
       const response = await axios.get(
         `${process.env.DELIVER_SERVICE_URL}/type/all`
@@ -15,8 +14,7 @@ const getAllJokeTypes = async () => {
     }
   }
   
-  const addType = async (type) => {
-    console.log("#$ add  types service",`${process.env.DELIVER_SERVICE_URL}/type/create`, type)
+  const addType = async (type) => {    
     try {
       const response = await axios.post(
         `${process.env.DELIVER_SERVICE_URL}/type/create`,
@@ -35,7 +33,6 @@ const getAllJokeTypes = async () => {
   };
 
   const createjoke = async (joke) => {
-    console.log("#$ add  types service",`${process.env.DELIVER_SERVICE_URL}/type/create`, joke)
     try {
       const response = await axios.post(
         `${process.env.DELIVER_SERVICE_URL}/joke/create`,

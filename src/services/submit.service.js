@@ -31,7 +31,6 @@ const updateUnModeratedJokes = async (data) => {
         }
       );
 
-      console.log("updated joke", response.data)
       return response.data;
     } catch (error) {
       console.error(`Error fetching order details:`);
@@ -39,7 +38,6 @@ const updateUnModeratedJokes = async (data) => {
   };
 
   const deleteUnModeratedJokes = async (id) => { // Assuming id is a number; adjust if needed
-    console.log("#$ delete unmoderated joke", `${process.env.SUBMIT_SERVICE_URL}/submitJokes/rejectJokes/${id}`);
   
     try {
       const response = await axios.delete(
@@ -51,7 +49,6 @@ const updateUnModeratedJokes = async (data) => {
         }
       );
   
-      console.log("Deleted joke", response.data);
       return response.data;
     } catch (error) {
       console.error(`Error deleting joke: `);
