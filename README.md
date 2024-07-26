@@ -14,13 +14,13 @@ The Moderator Micro Service is a backend component designed to handle the modera
 
 ## Installation using Docker
 
-# Log in to Docker Hub
+### Log in to Docker Hub
 docker login
 
-# Build the Docker image
+### Build the Docker image
 docker build -t "docker-image-name:tag" .
 
-# Push the Docker image to Docker Hub
+### Push the Docker image to Docker Hub
 docker push "docker-image-name:tag"
 
 
